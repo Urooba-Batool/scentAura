@@ -1,0 +1,315 @@
+/* ===============================   basics   ============================================ */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.container-fluid{
+    padding: 20px;
+    background-color: #fff5e5;
+
+}
+h1{
+    font-size: 60px;
+}
+h2{
+    font-size: 35px;
+    margin-left: 5px;
+}
+/* ===============================   header   ============================================ */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #C08081;
+    color: #fff;
+    height: 3rem;
+}
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    font-size: 18px;
+}
+.nav-links a:hover::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #F7E7CE;
+    bottom: -5px;
+    left: 0;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #d99394;
+    min-width: 160px;
+    z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.dropdown-content a {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: #C08081;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.icons {
+    display: flex;
+    gap: 15px;
+}
+.icons i {
+    font-size: 24px;
+    cursor: pointer;
+}
+.menu-btn {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #C08081;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        padding: 10px;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .menu-btn {
+        display: block;
+    }
+}
+/* ===============================   bannar/slider    ============================================ */
+.banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    color:#e9d4aa; 
+    box-sizing: border-box; 
+    margin-bottom: 20px;
+}
+.left-div {
+    flex: 1; 
+    text-align: center;
+}
+.right-div {
+    flex: 1; 
+    overflow: hidden; 
+    height: 100%;
+}
+.right-div img {
+    width: 100%; 
+    height: 100%; 
+    display: block; 
+}
+.left-div p{
+    font-size: 20px;
+}
+@media (max-width: 1200px) {
+    .banner {
+        height: 300px; 
+    }
+}
+@media (max-width: 768px) {
+    .banner {
+        flex-direction: column; 
+        height: auto; 
+    }
+    .left-div, .right-div {
+        width: 100%; 
+        margin: 0; 
+        padding: 0; 
+    }
+    .right-div img {
+        height: 100%; 
+        object-fit: cover;
+    }
+}
+@media (max-width: 480px) {
+    .left-div h1 {
+        font-size: 1.5rem; 
+    }
+    .left-div p {
+        font-size: 1rem;
+    }
+}
+/* ===============================   categories   ============================================ */
+.category-slider-container {
+    position: relative;
+    width: 98%;
+    overflow: hidden;
+    margin: 20px;
+}
+.category-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 10px;
+    scrollbar-width: none; /* For Firefox */
+}
+.category-slider::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+}
+.category-card {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.category-card:hover {
+    transform: scale(1.05);
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 50%;
+}
+.category-card:hover .overlay {
+    opacity: 1;
+}
+/* ======================================   products   ============================================ */
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* space between cards */
+    max-width: 1200px; /* max width adjust karein */
+    margin: 0 auto; /* center the container */
+}
+
+.product-card {
+    flex-basis: calc(25% - 20px); /* 4 cards per row */
+    margin: 10px;
+    width: auto;
+    height: 200px !important;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fffbf5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.product-card img {
+    width: 90%; 
+    height: 70%;
+    object-fit: cover;
+    margin: 13px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-card-info {
+    padding: 5px;
+    text-align: center;
+}
+
+.product-card-info h3 {
+    margin: 5px 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.product-card-info p {
+    margin: 5px 0;
+    color: #666;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    display: flex;
+    background: white;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 900px;
+    overflow: hidden;
+}
+
+.modal-right {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal-left img {
+    width: 100%;
+    height: 400px;
+}
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.quantity-container button {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#quantity {
+    width: 50px;
+    text-align: center;
+    margin: 0 10px;
+}
+
